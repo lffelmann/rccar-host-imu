@@ -41,3 +41,4 @@ services:
       - ROS_DOMAIN_ID=0
     command: ["serial", "--dev", "/dev/ttyUSB0", "-b", "921600"]
     restart: unless-stopped
+
