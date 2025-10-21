@@ -11,6 +11,7 @@ services:
       - ROS_DOMAIN_ID=0
     volumes:
       - /dev:/dev
+      - /dev/shm:/dev/shm
     depends_on:
       - gamepad
     restart: unless-stopped
@@ -25,6 +26,8 @@ services:
     privileged: true
     environment:
       - ROS_DOMAIN_ID=0
+    volumes:
+      - /dev/shm:/dev/shm
     depends_on:
       - agent
     devices:
@@ -37,6 +40,7 @@ services:
     privileged: true
     volumes:
       - /dev:/dev
+      - /dev/shm:/dev/shm
     environment:
       - ROS_DOMAIN_ID=0
     command: ["serial", "--dev", "/dev/ttyUSB0", "-b", "921600"]
