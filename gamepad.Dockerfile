@@ -35,14 +35,3 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh \
 COPY ros_entrypoint.sh /ros_entrypoint.sh
 RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
-
-CMD ["ros2", "run", "tuw_gamepad", "gamepad_node", \
-     "--ros-args", \
-       "-p", "use_stamped_velocity:=true", \
-       "-p", "debug:=true", \
-       "-p", "lx:=3", \
-       "-p", "az:=0", \
-       "-p", "flip_angular_when_reversing:=true", \
-       "-p", "scale_linear:=-2.0", \
-       "-p", "scale_angular:=-2.0"]
-       
