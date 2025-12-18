@@ -1,0 +1,1 @@
+You can run the production with `docker compose --profile prod up` and the development with `docker compose --profile dev up`.

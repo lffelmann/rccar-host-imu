@@ -1,5 +1,8 @@
 services:
   rccar:
+    profiles:
+      - prod
+      - dev
     build:
       context: .
       dockerfile: rccar.Dockerfile
@@ -13,12 +16,14 @@ services:
       - /dev:/dev
       - /dev/shm:/dev/shm
     depends_on:
-      - gamepad
+      - agent
     command: >
       ros2 run rccar correction_total
     restart: unless-stopped
 
   gamepad:
+    profiles:
+      - prod
     build:
       context: .
       dockerfile: gamepad.Dockerfile
@@ -46,6 +51,9 @@ services:
     restart: unless-stopped
 
   agent:
+    profiles:
+      - prod
+      - dev
     image: microros/micro-ros-agent:jazzy
     network_mode: host
     privileged: true
